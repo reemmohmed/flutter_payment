@@ -1,69 +1,65 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/CustomCreditCard.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/PaymentListView.dart';
+import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/Custom_buttom.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/item_widget_in_patment.dart';
 
-class PaymentDetalseBody extends StatelessWidget {
-  const PaymentDetalseBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: const Column(
-        children: [
-          SizedBox(
-            height: 10,
-          ),
-          PaymentListView(),
-          CustomCreditCard()
-        ],
-      ),
-    );
-  }
-}
-
-class CustomCreditCard extends StatefulWidget {
-  const CustomCreditCard({
+class PaymentDetalseBody extends StatefulWidget {
+  const PaymentDetalseBody({
     super.key,
   });
 
   @override
-  State<CustomCreditCard> createState() => _CustomCreditCardState();
+  State<PaymentDetalseBody> createState() => _PaymentDetalseBodyState();
 }
 
-class _CustomCreditCardState extends State<CustomCreditCard> {
+class _PaymentDetalseBodyState extends State<PaymentDetalseBody> {
   final GlobalKey<FormState> formKey = GlobalKey();
-
-  String cardNumber = '', expiryDate = '', cardHolderName = '', cvvCode = '';
-
-  bool showBackView = false;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CreditCardWidget(
-            isHolderNameVisible: true,
-            cardNumber: cardNumber,
-            expiryDate: expiryDate,
-            cardHolderName: cardHolderName,
-            cvvCode: cvvCode,
-            showBackView: showBackView,
-            onCreditCardWidgetChange: (value) {}),
-        CreditCardForm(
-            cardNumber: cardNumber,
-            expiryDate: expiryDate,
-            cardHolderName: cardHolderName,
-            cvvCode: cvvCode,
-            onCreditCardModelChange: (creditCardModel) {
-              cardNumber = creditCardModel.cardNumber;
-              expiryDate = creditCardModel.expiryDate;
-              cardHolderName = creditCardModel.cardHolderName;
-              cvvCode = creditCardModel.cvvCode;
-              showBackView = creditCardModel.isCvvFocused;
-              setState(() {});
-            },
-            formKey: formKey)
+    return CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.only(top: 12),
+            child: PaymentListView(),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: CustomCreditCard(
+            globalKey: formKey,
+            autovalidateMode: autovalidateMode,
+          ),
+        ),
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: CustomButtom(
+                  onTab: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      log('payment');
+                    } else {
+                      autovalidateMode = AutovalidateMode.always;
+                      setState(() {});
+                    }
+                  },
+                  titel: 'Pay',
+                ),
+              )),
+        ),
+        const SliverToBoxAdapter(
+          child: SizedBox(
+            height: 12,
+          ),
+        )
       ],
     );
   }

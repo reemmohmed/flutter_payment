@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/complet_payment.dart';
+import 'package:flutter_paymant/Features/cheacOut/presentation/view/payment_detalse.dart';
+import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/Custom_buttom.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/order.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/total.dart';
 import 'package:flutter_paymant/core/Utels/Styels.dart';
@@ -54,7 +55,16 @@ class MycardViewBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const CompletPayment()
+          CustomButtom(
+            onTab: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return const PaymentDetalse();
+                }),
+              );
+            },
+            titel: 'Complete Payment',
+          )
         ],
       ),
     );
