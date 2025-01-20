@@ -1,10 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_paymant/Features/cheacOut/presentation/view/thank_you.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/CustomCreditCard.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/PaymentListView.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/Custom_buttom.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/item_widget_in_patment.dart';
+import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/thank_you_body.dart';
 
 class PaymentDetalseBody extends StatefulWidget {
   const PaymentDetalseBody({
@@ -47,6 +49,13 @@ class _PaymentDetalseBodyState extends State<PaymentDetalseBody> {
                       formKey.currentState!.save();
                       log('payment');
                     } else {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const ThankYou();
+                          },
+                        ),
+                      );
                       autovalidateMode = AutovalidateMode.always;
                       setState(() {});
                     }
@@ -57,7 +66,7 @@ class _PaymentDetalseBodyState extends State<PaymentDetalseBody> {
         ),
         const SliverToBoxAdapter(
           child: SizedBox(
-            height: 12,
+            height: 20,
           ),
         )
       ],
