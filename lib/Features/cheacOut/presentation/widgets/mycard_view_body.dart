@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/view/payment_detalse.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/Custom_buttom.dart';
+import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/PaymentListView.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/order.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/total.dart';
 import 'package:flutter_paymant/core/Utels/Styels.dart';
@@ -57,14 +58,46 @@ class MycardViewBody extends StatelessWidget {
           ),
           CustomButtom(
             onTab: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) {
-                  return const PaymentDetalse();
-                }),
-              );
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(builder: (context) {
+              //     return const PaymentDetalse();
+              //   }),
+              // );
+
+              showModalBottomSheet(
+                  shape: BeveledRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  context: context,
+                  builder: (context) {
+                    return const CustomButtomSheet();
+                  });
             },
             titel: 'Complete Payment',
           )
+        ],
+      ),
+    );
+  }
+}
+
+class CustomButtomSheet extends StatelessWidget {
+  const CustomButtomSheet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          PaymentListView(),
+          SizedBox(
+            height: 10,
+          ),
+          CustomButtom(
+            titel: 'Containue',
+            onTab: () {},
+          ),
         ],
       ),
     );
