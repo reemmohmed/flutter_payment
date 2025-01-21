@@ -9,9 +9,13 @@ class PaymentDetalse extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: BuildAppBar(() {
-            Navigator.pop(context);
-          }, titel: 'payment Detalse'),
+          appBar: BuildAppBar(
+            () {
+              Navigator.pop(context);
+            },
+            color: Colors.blue,
+            titel: 'payment Detalse',
+          ),
           body: const PaymentDetalseBody()),
     );
   }

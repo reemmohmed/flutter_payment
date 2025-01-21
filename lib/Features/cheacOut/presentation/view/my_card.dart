@@ -10,7 +10,10 @@ class MyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: BuildAppBar(() {}, titel: 'MyCard'),
+        appBar: BuildAppBar(
+          () {},
+          titel: 'MyCard',
+        ),
         body: MycardViewBody(),
       ),
     );
