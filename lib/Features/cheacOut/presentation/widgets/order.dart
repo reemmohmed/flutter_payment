@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_paymant/core/Utels/Styels.dart';
+import 'package:flutter_paymant/core/Utils/Styels.dart';
 
 class Order extends StatelessWidget {
   const Order({

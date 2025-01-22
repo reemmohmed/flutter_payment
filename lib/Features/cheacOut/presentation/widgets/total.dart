@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_paymant/core/Utels/Styels.dart';
+import 'package:flutter_paymant/core/Utils/Styels.dart';
 
 class Total extends StatelessWidget {
   const Total({super.key, required this.titel, required this.price});

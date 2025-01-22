@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_paymant/core/Utels/Styels.dart';
+import 'package:flutter_paymant/core/Utils/Styels.dart';
 
 AppBar BuildAppBar(void Function()? ontap, {String? titel, Color? color}) {
   return AppBar(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/order.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/total.dart';
-import 'package:flutter_paymant/core/Utels/Styels.dart';
+import 'package:flutter_paymant/core/Utils/Styels.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ThankYouCard extends StatelessWidget {

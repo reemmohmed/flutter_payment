@@ -4,7 +4,7 @@ import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/Custom_bu
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/PaymentListView.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/order.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/total.dart';
-import 'package:flutter_paymant/core/Utels/Styels.dart';
+import 'package:flutter_paymant/core/Utils/Styels.dart';
 
 class MycardViewBody extends StatelessWidget {
   const MycardViewBody({super.key});

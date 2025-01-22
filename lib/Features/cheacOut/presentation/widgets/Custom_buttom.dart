@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/view/payment_detalse.dart';
-import 'package:flutter_paymant/core/Utels/Styels.dart';
+import 'package:flutter_paymant/core/Utils/Styels.dart';
 
 class CustomButtom extends StatelessWidget {
   const CustomButtom({super.key, required this.titel, this.onTab});
