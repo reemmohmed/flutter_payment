@@ -16,3 +16,6 @@ class ChecOutPayment extends StatelessWidget {
     );
   }
 }
+//1: payment entent object  creat payment itenet(amount , currency),
+//2 : int payment scheet(int payment cline sceutrt)
+//3 : pressent payment sheet
