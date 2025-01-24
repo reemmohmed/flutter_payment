@@ -5,6 +5,7 @@ import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/PaymentLi
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/order.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/widgets/total.dart';
 import 'package:flutter_paymant/core/Utils/Styels.dart';
+import 'package:flutter_paymant/core/payment_stripe/payment_stripe.dart';
 
 class MycardViewBody extends StatelessWidget {
   const MycardViewBody({super.key});
@@ -96,7 +97,9 @@ class CustomButtomSheet extends StatelessWidget {
           ),
           CustomButtom(
             titel: 'Containue',
-            onTab: () {},
+            onTab: () {
+              PaymentStrpe.makePayment('usd', 200);
+            },
           ),
         ],
       ),

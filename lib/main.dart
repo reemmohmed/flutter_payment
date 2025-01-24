@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_paymant/Features/cheacOut/presentation/view/my_card.dart';
+import 'package:flutter_paymant/core/payment_stripe/api_key.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 void main() {
+  Stripe.publishableKey = ApiKey.publishablekey;
   runApp(const ChecOutPayment());
 }
 
